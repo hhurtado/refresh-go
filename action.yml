@@ -1,0 +1,17 @@
+name: 'refresh-go'
+description: 'Github action to create a pull request changin the Go version when a new Go release is found'
+inputs:
+  go-version-filepath:
+    description: 'Path to the file containing the current Go version'
+    required: false
+    default: '.github/versions/go'
+outputs:
+  go-version:
+    description: 'Next Go version to use'
+  pr-title:
+    description: 'Title for the pull request to create'
+  branch-name:
+    description: 'Name of the branch in wich to create the pull request'
+runs:
+  using: 'node14'
+  main: 'dist/index.js'
